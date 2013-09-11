@@ -31,6 +31,7 @@ end
 #=> count_words test: puts count_words("A man, a plan, a canal -- Panama")
 #=> puts count_words("Doo bee doo bee doo")
 
+# Part4: Anagram
 def combine_anagrams(words)
 
 end
