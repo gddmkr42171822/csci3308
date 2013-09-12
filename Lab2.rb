@@ -37,4 +37,4 @@ def combine_anagrams(words)
 	#source: http://stackoverflow.com/questions/16631961/how-can-i-simplify-or-clean-up-this-anagram-method
 end
 
-puts combine_anagrams(['cars', 'for', 'creams', 'fuck', 'racs', 'four', 'scar', 'potatoes','uckf', 'scream'])
+#=> combine_anagrams test: puts combine_anagrams(['cars', 'for', 'creams', 'fuck', 'racs', 'four', 'scar', 'potatoes','uckf', 'scream'])
