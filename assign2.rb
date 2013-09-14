@@ -5,15 +5,18 @@
 #=> Part 1: Classes
 class Dessert
 	def initialize(name, calories)
-	
+		@name = name
+		@calories = calories
 	end
 	
 	def healthy?
-	
+		if @calories < 200
+			return true
+		end
 	end
 	
-	def delicious
-	
+	def delicious?
+		return true
 	end
 end
 
