@@ -13,6 +13,7 @@ class Dessert
 		if @calories < 200
 			return true
 		end
+		return false
 	end
 	
 	def delicious?
@@ -22,10 +23,13 @@ end
 
 class JellyBean < Dessert	
 	def initlize(name, calories, flavor)
-	
+		@flavor = flavor
 	end
 	
 	def delicious?
-	
+		if @flavor == "black licorice"
+			return false
+		end
+		return true
 	end
 end
