@@ -57,6 +57,8 @@ class Foo
 	attr_accessor_with_history :bar
 end
 
+#=> Part 3: More OOP
+
 class Numeric
 	@@currencies = {'yen' => 0.013, 'euro' => 1.292, 'rupee' => 0.019}
 	def method_missing(method_id)
