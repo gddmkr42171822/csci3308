@@ -41,10 +41,30 @@ class Class
 		attr_name = attr_name.to_s
 		attr_reader attr_name
 		attr_reader attr_name+"_history"
-		class_eval "   "
+		class_eval %Q"
+            def #{attr_name}=(value)
+                if !defined? @#{attr_name}_history
+                    @#{attr_name}_history = [@#{attr_name}]
+                end
+                @#{attr_name} = value
+                @#{attr_name}_history << value
+            end
+        "
 	end
 end
 
 class Foo
 	attr_accessor_with_history :bar
+end
+
+class Numeric
+	@@currencies = {'yen' => 0.013, 'euro' => 1.292, 'rupee' => 0.019}
+	def method_missing(method_id)
+		singular_curreny = method_id.to_s.gsub( /s$/, '')
+		if @@currencies.has_key?(singular_currency)
+			self * @@currencies[singular_currency]
+		else
+			super
+		end
+	end
 end
