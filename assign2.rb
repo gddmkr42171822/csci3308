@@ -82,4 +82,9 @@ class Numeric
 	end
 end
 
-
+class String
+	def palindrome?
+		temp_str = self.downcase.gsub(/\W/, "")
+		temp_str == temp_str.reverse 
+	end
+end
