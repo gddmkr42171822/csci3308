@@ -64,6 +64,7 @@ end
 
 #sources: http://stackoverflow.com/questions/9651612/ruby-method-missing
 #sources: https://github.com/kevdashdev/saas-hw1/blob/master/ruby/part6.rb
+#sources: https://gist.github.com/tomtung/1973534
 
 class Numeric
 	@@currencies = {'yen' => 0.013, 'euro' => 1.292, 'rupee' => 0.019, 'dollar' =>1}
@@ -88,3 +89,13 @@ class String
 		temp_str == temp_str.reverse 
 	end
 end
+
+module Enumerable
+	def palindrome?
+		array = {} #=> make empty array
+		self.collect{|num| num} == self.collect{|num|num}.reverse #=> compare array of numbers to its reversed self
+	end
+end
+
+#=> Part 4: Blocks
+		
