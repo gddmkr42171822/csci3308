@@ -22,7 +22,7 @@ class Dessert
 end
 
 class JellyBean < Dessert	
-	def initlize(name, calories, flavor)
+	def initialize(name, calories, flavor)
 		@flavor = flavor
 	end
 
