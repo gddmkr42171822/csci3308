@@ -83,6 +83,8 @@ class Numeric
 	end
 end
 
+print 5.dollars.in(:yen)
+
 class String
 	def palindrome?
 		temp_str = self.downcase.gsub(/\W/, "")
