@@ -28,8 +28,8 @@ def count_words(string)
 	return myhash
 end
 
-#=> count_words test: puts count_words("A man, a plan, a canal -- Panama")
-#=> puts count_words("Doo bee doo bee doo")
+#puts count_words("A man, a plan, a canal -- Panama")
+#puts count_words("Doo bee doo bee doo")
 
 # Part3: Rock Paper Scissors
 class WrongNumberOfPlayersError < StandardError ; end
@@ -70,7 +70,8 @@ end
 # test game: puts rps_game_winner([["Armando", "p"], ["Dave", "S"]])
 
 def rps_tournament_winner(tournament)
-
+	#puts tournament[0][0]
+	#puts 'hello'
 	if tournament[0][0].is_a?(String)
 		rps_game_winner(tournament)
 	else
@@ -79,7 +80,7 @@ def rps_tournament_winner(tournament)
 	#source: http://pastebin.com/GeXQx2FY
 end
 
-=begin test tournament: puts rps_tournament_winner([
+puts rps_tournament_winner([
     [
         [ ["Armando", "P"], ["Dave", "S"] ],
         [ ["Richard", "R"],  ["Michael", "S"] ],
@@ -89,7 +90,7 @@ end
         [ ["David E.", "R"], ["Richard X.", "P"] ]
     ]
 ])
-=end
+
 # Part4: Anagram
 def combine_anagrams(words)
 	print words.group_by { |word| word.each_char.sort }.values #=>make a hash with each word as a key and an array of words related to each key as the values

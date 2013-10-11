@@ -46,7 +46,8 @@ class Class
 		attr_reader attr_name+"_history"
 		class_eval %Q"
             def #{attr_name}=(value)
-                if !defined? @#{attr_name}_history
+                if !defined? 
+                	@#{attr_name}_history
                     @#{attr_name}_history = [@#{attr_name}]
                 end
                 @#{attr_name} = value
@@ -69,7 +70,7 @@ end
 class Numeric
 	@@currencies = {'yen' => 0.013, 'euro' => 1.292, 'rupee' => 0.019, 'dollar' =>1}
 	def method_missing(method_id)
-		singular_currency = method_id.to_s.gsub( /s$/, '') #=> gets rid of spaces and converts thing to string
+		singular_currency = method_id.to_s.gsub( /s$/, '') #=> gets rid of 's' on end of currency and converts symbol to string
 		if @@currencies.has_key?(singular_currency)
 			self * @@currencies[singular_currency]
 		else
@@ -78,7 +79,7 @@ class Numeric
 	end
 
 	def in(currency) #=> method takes in currency
-		singular_currency = currency.to_s.gsub( /s$/, '') #=> converts it to string
+		singular_currency = currency.to_s.gsub( /s$/, '') #=> gets rid of 's' and converts it to string
 		self / @@currencies[singular_currency] #=> goes into class variable, finds value from key
 	end
 end
@@ -94,7 +95,7 @@ end
 
 module Enumerable
 	def palindrome?
-		array = {} #=> make empty array
+		array = [] #=> make empty array
 		self.collect{|num| num} == self.collect{|num|num}.reverse #=> compare array of numbers to its reversed self
 	end
 end
@@ -115,8 +116,10 @@ class CartesianProduct
 			unless @sequence1.empty? && @sequence2.empty? #=>don't execute if the sequences are empty
 			combination_sequence = []
 			@sequence1.each do |s1|
-				combination_sequence << @sequence2.each {|s2| yield [s1] << s2} #=>iterate through the first sequence while putting the second sequence in an array with the first		
+				combination_sequence << @sequence2.each {|s2| yield [s1] << s2} #=>iterate through the first sequence while putting both the first and second sequence into combo array
 			end
 		end
 	end
 end
+c = CartesianProduct.new([:a,:b], [4,5])
+c.each { |elt| puts elt.inspect }
