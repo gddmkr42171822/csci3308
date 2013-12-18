@@ -1,4 +1,4 @@
-# Robert Werthman
+# 
 # Assignment 2
 
 
