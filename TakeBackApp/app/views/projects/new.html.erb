@@ -1,0 +1,37 @@
+<!--CREATE a NEW project page-->
+
+<div class="row">
+  <div class="span6 offset3 center" >
+    <img src= "http://farm8.staticflickr.com/7422/11357206726_407f3282c9.jpg" width="400" height="350" alt="create">
+    <h1>create a new project</h1>
+
+    <% if signed_in? %>
+      <%= form_for :project, url: projects_path do |f| %>
+        <p><br>
+          <%= f.label :title %><br>
+          <%= f.text_field :title %>
+        </p>
+     
+        <p>
+         <%= f.label :location %><br>
+          <%= f.text_field :location %>
+        </p>
+
+       <p>
+          <%= f.label :description %><br>
+          <%= f.text_area :description %>
+        </p>
+     
+        <p>
+          <%= f.submit %>
+        </p>
+    <% end %>
+
+  <% else %>
+    <h3> <%= link_to "sign in", signin_path %> or <%= link_to "sign up", signup_path %> to create a new project! </h3>
+
+  <% end %>
+  </div>
+</div>
+
+

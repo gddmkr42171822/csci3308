@@ -1,0 +1,25 @@
+<!--SIGN N PAGE-->
+
+<% provide(:title, "sign in") %>
+<h1>sign in <br> to takeback</h1>
+
+<div class="row">
+  <div class="span6 offset3 center" style= "text-offset:center">
+    <%= form_for(:session, url: sessions_path) do |f| %>
+
+      <%= f.label :email %> <br>
+      <%= f.text_field :email %>
+
+      <br><br>
+
+      <%= f.label :password %> <br>
+      <%= f.password_field :password %>
+
+      <br><br>
+
+      <%= f.submit "sign in", class: "btn btn-large btn-primary" %>
+    <% end %>
+    <br>
+    <p style="text-align:center">new user? <b><%= link_to "sign up", signup_path %></b></p>
+  </div>
+</div>

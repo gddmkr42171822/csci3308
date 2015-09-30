@@ -1,0 +1,29 @@
+<!-- MY PROJECTS PAGE-->
+
+
+<div class="span8 center">
+ <img src= "http://farm6.staticflickr.com/5499/11358358124_4eedb99478.jpg" width="500" height="299" alt="Boulder Flood Relief Volunteers">
+
+
+<h1>work on your projects</h1>
+<% if signed_in? %>
+ <div class="span6 offset3 center">
+ 	<% @current_user.projects.each do |project| %>
+ 		<br>
+ 		<h3><%= link_to project.title, project %><br> 
+ 		<%= project.location %> <br>
+ 		<%= link_to "edit", edit_project_path(project) %> <b>/</b>
+ 		<%= link_to "remove", project, method: :delete, data: { confirm: "are you sure?" } %></h3>
+ 		
+ 	<% end %>
+ </div>
+
+ <% else %>
+ 	<h3> <%= link_to "sign in", signin_path %> or <%= link_to "sign up", signup_path %> to work on your projects! </h3>
+ <% end %>
+
+<br><br>
+ <h2>not enough? <br> <%= link_to "create", new_project_path %> a new project <br> or <%= link_to "search", search_path %> for a project to join.<h2>
+ 
+</div>
+
